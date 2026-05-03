@@ -1,0 +1,155 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { profile } from "../../data/profile";
+---
+
+<BaseLayout
+  title="E&O Application Rebuild Case Study | Abhinav Naidu Chintala"
+  description="Case study: rebuilding an unstable insurance E&O application into a full-stack Zoho Catalyst workflow with pricing, payments, CRM sync, document generation, and WorkDrive delivery."
+>
+  <SiteHeader />
+  <main class="case-study-page">
+    <section class="case-hero">
+      <div class="section-shell case-hero-inner">
+        <a class="back-link" href="/#work">Back to work</a>
+        <p class="eyebrow">Case Study</p>
+        <h1>Rebuilding an Insurance E&O Application from the Ground Up</h1>
+        <p>
+          A solo full-stack rebuild of an unstable Errors & Omissions insurance application,
+          delivered in time for policy renewal deadlines and now running real renewals and new business.
+        </p>
+
+        <div class="case-meta-grid" aria-label="Case study summary">
+          <div>
+            <span>Client</span>
+            <strong>North American insurance brokerage</strong>
+          </div>
+          <div>
+            <span>Role</span>
+            <strong>Solo developer, full-stack</strong>
+          </div>
+          <div>
+            <span>Timeline</span>
+            <strong>About 3 weeks</strong>
+          </div>
+          <div>
+            <span>Stack</span>
+            <strong>Python, Zoho Catalyst, JavaScript, Webhooks, Zoho CRM, WorkDrive</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-content section-shell">
+      <article class="case-section">
+        <p class="case-kicker">The Problem</p>
+        <h2>An unreliable application was blocking renewals.</h2>
+        <p>
+          The client had an existing E&O application that was unstable and frequently failed
+          mid-workflow, leaving customers stuck and the internal team manually cleaning up broken
+          applications. With renewal season approaching, that meant lost business and operational chaos.
+        </p>
+        <p>
+          The brief was a complete rebuild. The difficult part was that the old codebase had no
+          documentation, inconsistent naming, and business logic spread across multiple files.
+          Renewals and new applications both had to be treated as new business, with dynamic
+          premium pricing, strict validation, and kickout conditions for applicants who did not
+          meet underwriting criteria.
+        </p>
+      </article>
+
+      <article class="case-section">
+        <p class="case-kicker">Approach</p>
+        <h2>I split the rebuild into three focused phases.</h2>
+
+        <div class="phase-grid">
+          <div class="phase-card">
+            <span>01</span>
+            <h3>Multi-step application flow</h3>
+            <p>
+              Built a 12-step form in vanilla JavaScript, HTML, and CSS with progress saving,
+              back-and-forth navigation, mandatory step-level validation, and a unique application
+              ID emailed to the user so they could resume later.
+            </p>
+          </div>
+
+          <div class="phase-card">
+            <span>02</span>
+            <h3>Pricing and underwriting logic</h3>
+            <p>
+              Implemented Python-based dynamic premium calculation and kickout rules. Since there
+              was no documentation, I reverse-engineered the legacy logic and validated expected
+              outcomes with the client.
+            </p>
+          </div>
+
+          <div class="phase-card">
+            <span>03</span>
+            <h3>Payment and document pipeline</h3>
+            <p>
+              Integrated payment links and built a webhook-driven post-payment pipeline that creates
+              policy records, syncs Zoho CRM, generates invoices, builds policy documents, stores
+              them in WorkDrive, and emails them to the customer.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-section case-split">
+        <div>
+          <p class="case-kicker">Challenges</p>
+          <h2>The hardest part was translating insurance rules into software.</h2>
+        </div>
+        <div>
+          <p>
+            The insurance domain was the main challenge. Terms like kickout, LA vs CA policy, and
+            the rules behind premium adjustments were not intuitive at first. I spent significant
+            time clarifying business rules with the client and checking my interpretation against
+            expected outcomes.
+          </p>
+          <p>
+            The legacy codebase made this harder. With no documentation and confusing structure, I
+            had to separate correct legacy behavior from broken behavior. The project also ran in
+            parallel with a US-to-Canada Zoho data-center migration, which added integration work,
+            shifting requirements, and deadline pressure.
+          </p>
+        </div>
+      </article>
+
+      <article class="case-section">
+        <p class="case-kicker">Outcome</p>
+        <h2>A broken workflow became a production-ready insurance pipeline.</h2>
+        <div class="outcome-grid">
+          <div>
+            <strong>~$250K</strong>
+            <span>annual premium revenue now flows through the application</span>
+          </div>
+          <div>
+            <strong>0</strong>
+            <span>manual recovery steps in the core submission-to-document pipeline</span>
+          </div>
+          <div>
+            <strong>End to end</strong>
+            <span>form submission, payment, CRM sync, invoice, documents, and email delivery</span>
+          </div>
+          <div>
+            <strong>Production</strong>
+            <span>handling real renewals and new business since launch</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-section final-note">
+        <p class="case-kicker">What This Shows</p>
+        <h2>Fast, high-stakes rebuilds are where I do some of my best work.</h2>
+        <p>
+          This project shows how I approach undocumented legacy systems, complex business rules,
+          and full-stack ownership. I did not just rebuild the frontend or backend in isolation.
+          I delivered the full operational path from application start to policy documents delivered.
+        </p>
+        <a class="button button-primary" href={`mailto:${profile.email}`}>Contact me</a>
+      </article>
+    </section>
+  </main>
+</BaseLayout>

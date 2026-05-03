@@ -1,0 +1,21 @@
+---
+import { profile } from "../data/profile";
+---
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand-link" href="#top" aria-label={`${profile.name} home`}>
+      <span class="brand-mark">AN</span>
+      <span>{profile.shortName}</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a class="resume-link" href={profile.links.resume}>Resume</a>
+  </nav>
+</header>

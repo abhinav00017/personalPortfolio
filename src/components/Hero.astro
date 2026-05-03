@@ -1,0 +1,51 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="top" class="hero-section">
+  <div class="hero-overlay">
+    <div class="hero-inner">
+      <div class="hero-copy-block">
+        <h1>{profile.name}</h1>
+        <p class="hero-title">{profile.headline}</p>
+        <p class="hero-copy">{profile.focus}</p>
+
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button button-primary" href="#work">View work</a>
+          <a class="button button-secondary" href={profile.links.resume}>Download resume</a>
+        </div>
+
+        <div class="hero-links" aria-label="Profile links">
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={profile.links.github}>GitHub</a>
+          <a href={profile.links.linkedin}>LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Engineering focus">
+        <div class="panel-topline">
+          <span></span>
+          <span>available profile</span>
+        </div>
+        <dl>
+          <div>
+            <dt>Since 2023</dt>
+            <dd>Shipping production software</dd>
+          </div>
+          <div>
+            <dt>10+</dt>
+            <dd>Client workflow systems delivered</dd>
+          </div>
+          <div>
+            <dt>$250K+/yr</dt>
+            <dd>Premium revenue processed through one application</dd>
+          </div>
+          <div>
+            <dt>500GB+</dt>
+            <dd>Data migrated on Azure infrastructure</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>

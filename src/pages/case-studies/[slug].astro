@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { featuredProjects } from "../../data/projects";
+
+export function getStaticPaths() {
+  return featuredProjects
+    .filter((project) => project.caseStudyUrl && !project.caseStudyUrl.includes("eo-application-rebuild"))
+    .map((project) => {
+      const slug = project.caseStudyUrl!.split("/").filter(Boolean).at(-1);
+
+      return {
+        params: { slug },
+        props: { project },
+      };
+    });
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.title} Case Study | Abhinav Naidu Chintala`}
+  description={`Case study summary for ${project.title}: ${project.summary}`}
+>
+  <SiteHeader />
+  <main class="case-study-page">
+    <section class="case-hero">
+      <div class="section-shell case-hero-inner">
+        <a class="back-link" href="/#work">Back to work</a>
+        <p class="eyebrow">Case Study</p>
+        <h1>{project.title}</h1>
+        <p>{project.summary}</p>
+
+        <div class="case-meta-grid compact-case-meta" aria-label="Case study summary">
+          <div>
+            <span>Focus</span>
+            <strong>{project.label}</strong>
+          </div>
+          <div>
+            <span>Result</span>
+            <strong>{project.headline}</strong>
+          </div>
+          <div>
+            <span>Stack</span>
+            <strong>{project.tech.join(", ")}</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-content section-shell">
+      <article class="case-section final-note">
+        <p class="case-kicker">Short Version</p>
+        <h2>{project.headline}</h2>
+        <p>
+          This is currently a concise case-study summary. The homepage card captures the core
+          project scope, and this page keeps the route ready for a deeper write-up when you want
+          to expand it.
+        </p>
+        <a class="button button-primary" href="/#contact">Contact me</a>
+      </article>
+    </section>
+  </main>
+</BaseLayout>

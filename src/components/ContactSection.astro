@@ -1,0 +1,23 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="contact" class="contact-section">
+  <div class="section-shell contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let’s talk about backend systems, automation, and cloud workflows.</h2>
+      <p>
+        I’m based in {profile.location} and work across Python backends, Zoho platforms,
+        insurance and finance workflows, payment pipelines, and cloud automation.
+      </p>
+    </div>
+
+    <div class="contact-links">
+      <a href={`mailto:${profile.email}`}>Email: {profile.email}</a>
+      <a href={profile.links.linkedin}>LinkedIn profile</a>
+      <a href={profile.links.github}>GitHub profile</a>
+      <a href={profile.links.resume}>Download resume</a>
+    </div>
+  </div>
+</section>

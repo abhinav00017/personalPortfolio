@@ -1,0 +1,28 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-label">{project.label}</div>
+  <h3>{project.title}</h3>
+  <p>{project.summary}</p>
+  <p class="project-headline">{project.headline}</p>
+
+  <div class="tech-list" aria-label={`Technology used for ${project.title}`}>
+    {project.tech.map((tech) => <span>{tech}</span>)}
+  </div>
+
+  {
+    project.caseStudyUrl && (
+      <a class="project-link" href={project.caseStudyUrl}>
+        Read case study
+      </a>
+    )
+  }
+</article>

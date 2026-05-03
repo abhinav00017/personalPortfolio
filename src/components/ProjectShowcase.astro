@@ -1,0 +1,59 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import ProjectCard from "./ProjectCard.astro";
+import { automationProjects, earlierProjects, featuredProjects } from "../data/projects";
+---
+
+<section id="work" class="page-section section-shell">
+  <SectionHeading
+    eyebrow="Selected Work"
+    title="Engineering case studies, not just task lists."
+    copy="These projects highlight the kind of systems I have been building recently: document automation, CRM workflows, data migration, payments, and cloud operations."
+  />
+
+  <div class="featured-grid">
+    {featuredProjects.map((project) => <ProjectCard project={project} />)}
+  </div>
+
+  <div class="archive-section">
+    <div class="archive-heading">
+      <p class="eyebrow">More Automations</p>
+      <h3>Other shipped workflow pieces</h3>
+    </div>
+
+    <div class="compact-grid">
+      {
+        automationProjects.map((project) => (
+          <article class="compact-card">
+            <h4>{project.title}</h4>
+            <p>{project.summary}</p>
+            <div class="tech-list">
+              {project.tech.map((tech) => <span>{tech}</span>)}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="archive-section">
+    <div class="archive-heading">
+      <p class="eyebrow">Earlier Projects</p>
+      <h3>Personal and research work</h3>
+    </div>
+
+    <div class="compact-grid two-up">
+      {
+        earlierProjects.map((project) => (
+          <article class="compact-card">
+            <h4>{project.title}</h4>
+            <p>{project.summary}</p>
+            <div class="tech-list">
+              {project.tech.map((tech) => <span>{tech}</span>)}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

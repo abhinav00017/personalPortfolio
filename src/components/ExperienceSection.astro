@@ -1,0 +1,36 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { experience } from "../data/experience";
+---
+
+<section id="experience" class="page-section section-shell">
+  <SectionHeading
+    eyebrow="Experience"
+    title="From cloud platforms to client workflow systems."
+    copy="I like work where the backend, platform constraints, and user workflow all have to line up cleanly."
+  />
+
+  <div class="timeline">
+    {
+      experience.map((item) => (
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span>{item.period}</span>
+            <span>{item.location}</span>
+          </div>
+          <div class="timeline-content">
+            {item.label && <div class="experience-label">{item.label}</div>}
+            <p class="role">{item.role}</p>
+            <h3>{item.company}</h3>
+            <p>{item.summary}</p>
+            <ul>
+              {item.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { certifications, skillGroups } from "../data/skills";
+---
+
+<section id="skills" class="page-section skills-section">
+  <div class="section-shell">
+    <SectionHeading
+      eyebrow="Stack"
+      title="Comfortable across backend, cloud, and platform glue."
+      copy="Python is my core language, but a lot of my recent work lives at the boundary between APIs, CRM data, cloud infrastructure, and user workflows."
+    />
+
+    <div class="skills-grid">
+      {
+        skillGroups.map((group) => (
+          <article class="skill-group">
+            <h3>{group.title}</h3>
+            <div class="skill-list">
+              {group.skills.map((skill) => <span>{skill}</span>)}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="certification-band">
+      <h3>Certifications</h3>
+      <ul>
+        {certifications.map((certification) => <li>{certification}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

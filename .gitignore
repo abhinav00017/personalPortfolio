@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Node / Astro
+node_modules/
+dist/
+.astro/
+npm-debug.log*
+
 # C extensions
 *.so
 
@@ -216,3 +222,4 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+.vercel

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactSection from "../components/ContactSection.astro";
+import ExperienceSection from "../components/ExperienceSection.astro";
+import Hero from "../components/Hero.astro";
+import ProjectShowcase from "../components/ProjectShowcase.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SkillsSection from "../components/SkillsSection.astro";
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main>
+    <Hero />
+    <ExperienceSection />
+    <ProjectShowcase />
+    <SkillsSection />
+    <ContactSection />
+  </main>
+</BaseLayout>
