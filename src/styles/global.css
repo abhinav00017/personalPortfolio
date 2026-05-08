@@ -89,6 +89,8 @@ li {
 
 .brand-link,
 .nav-links,
+.nav-actions,
+.contact-link,
 .resume-link,
 .hero-actions,
 .hero-links,
@@ -133,6 +135,26 @@ li {
 
 .nav-links a:hover,
 .hero-links a:hover {
+  color: #fff;
+}
+
+.nav-actions {
+  gap: 8px;
+}
+
+.contact-link {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.contact-link:hover {
+  border-color: rgba(112, 226, 207, 0.55);
   color: #fff;
 }
 
@@ -1054,13 +1076,14 @@ li {
 
   .site-header {
     top: 10px;
-    width: min(100% - 18px, 1160px);
+    width: min(100% - 14px, 1160px);
     margin-bottom: -66px;
   }
 
   .site-nav {
-    min-height: 54px;
-    padding: 0 10px;
+    min-height: 50px;
+    padding: 0 8px;
+    gap: 10px;
   }
 
   .brand-link > span:last-child {
@@ -1068,8 +1091,25 @@ li {
   }
 
   .resume-link {
-    min-height: 34px;
-    padding: 0 12px;
+    min-height: 32px;
+    padding: 0 11px;
+    font-size: 0;
+  }
+
+  .contact-link {
+    min-height: 32px;
+    padding: 0 11px;
+    font-size: 0;
+  }
+
+  .contact-link::after {
+    content: "Contact";
+    font-size: 0.8rem;
+  }
+
+  .resume-link::after {
+    content: "CV";
+    font-size: 0.8rem;
   }
 
   .hero-section {
